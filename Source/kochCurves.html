@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+
+<script id="vertex-shader" type="x-shader/x-vertex">
+
+attribute vec4 vPosition;
+attribute vec4 vColor;
+
+varying vec4 fColor;
+
+void
+main()
+{
+    gl_Position = vPosition;
+    fColor = vColor;
+}
+</script>
+
+<script id="fragment-shader" type="x-shader/x-fragment">
+
+precision mediump float;
+
+varying vec4 fColor;
+void
+main()
+{
+    gl_FragColor = fColor;
+}
+</script>
+
+<script type="text/javascript" src="Common/webgl-utils.js"></script>
+<script type="text/javascript" src="Common/initShaders.js"></script>
+<script type="text/javascript" src="Common/MV.js"></script>
+<script type="text/javascript" src="kochCurves.js"></script>
+
+<body>
+    <canvas id="gl-canvas" width="720" height="720">
+        >
+        Oops ... your browser doesn't support the HTML5 canvas element
+    </canvas>
+
+    <br><br>
+    <label for="iter">Number of Iteration</label>
+    <input type="text" id="iter" name="iter">
+    <button id="submit_btn" type="submit" value="Submit"> Start Koch </button>
+    <button id="clear_button">Clear Page</button>
+    <button id="save_button"> Save </button>
+    <input type="file" id="load_button"/>
+
+    <div>
+        <label for="shape">Shape Color</label>
+        <input type="color" id="shape" name="favcolor" value="#ffffff">
+        <label for="inside">Filling Color</label>
+        <input type="color" id="inside" name="favcolor" value="#ff0000">
+        <label for="background">Background Color</label>
+        <input type="color" id="background" name="favcolor" value="#000000">
+    </div>
+
+    <div>
+        <input type="checkbox" id="fill" name="location" value="fill">
+        <label for="fill">Fill</label><br>
+    </div>
+    
+</body>
+</html>
